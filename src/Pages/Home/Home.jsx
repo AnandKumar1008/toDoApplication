@@ -76,6 +76,7 @@ const Home = () => {
           Add To Do
         </button>
       </div>
+      <h1>Hare krishna</h1>
       {loading && <p style={{ margin: "1rem 0" }}>Loading...</p>}
       <List />
     </div>
