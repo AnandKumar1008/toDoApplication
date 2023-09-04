@@ -1,0 +1,8 @@
+.to_do-list_button {
+  margin: 1rem;
+}
+.to_do-list_button button {
+  padding: 0.25rem;
+  width: 4rem;
+  cursor: pointer;
+}
