@@ -27,15 +27,18 @@ const CreateAccount = () => {
       return;
     }
     const create = async () => {
-      const res = await axios.post(
-        `${BASE_URL}/api/v1/user/signup`,
-        userDetail
-      );
-      console.log(res);
-      if (res.statusText === "OK") {
+      try {
+        const res = await axios.post(
+          `${BASE_URL}/api/v1/user/signup`,
+          userDetail
+        );
+        console.log(res);
         setLoginPage(true);
         setAuthPage(true);
         setMessage("Account Creation SuccessFull");
+      } catch (error) {
+        console.log(error);
+        setError(error?.response?.data?.message);
       }
     };
 

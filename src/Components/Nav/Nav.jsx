@@ -21,15 +21,16 @@ const Nav = () => {
           Home
         </li>
         {login ? (
-          <li
-            onClick={() => {
-              setLogin(false);
-              setUserData([]);
-              localStorage.setItem("to_do_token", JSON.stringify(""));
-            }}
-          >
-            Logout
-          </li>
+          // <li
+          //   onClick={() => {
+          //     setLogin(false);
+          //     setUserData([]);
+          //     localStorage.setItem("to_do_token", JSON.stringify(""));
+          //   }}
+          // >
+          //   Logout
+          // </li>
+          <></>
         ) : (
           <>
             <li
