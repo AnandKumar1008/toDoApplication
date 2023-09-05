@@ -7,17 +7,33 @@ import { CiLogin, CiLogout } from "react-icons/ci";
 // import { IoPersonAdd } from "react-icons/io";
 import { IoMdPersonAdd } from "react-icons/io";
 import { AiOutlineUser } from "react-icons/ai";
+import { useLocation, useNavigate } from "react-router-dom";
 const Nav = () => {
   const { setAuthPage, setLoginPage, login, setLogin, setUserData, userName } =
     useContext(MyContext);
-  const [select, setSelect] = useState("home");
+  const location = useLocation();
+  const [select, setSelect] = useState(
+    location.pathname == "/todo" ? "todo" : "home"
+  );
+  const navigate = useNavigate();
   return (
     <div className="to_do-nav">
       <ul className="to_do-nav_top">
-        <li>ToDo App</li>
+        <li
+          style={select === "todo" ? { backgroundColor: "lightblue" } : {}}
+          onClick={() => {
+            setSelect("todo");
+            navigate("/todo");
+          }}
+        >
+          ToDo App
+        </li>
         <li
           style={select === "home" ? { backgroundColor: "lightblue" } : {}}
-          onClick={() => setSelect("home")}
+          onClick={() => {
+            navigate("/");
+            setSelect("home");
+          }}
         >
           Home
         </li>

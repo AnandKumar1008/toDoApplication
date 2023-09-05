@@ -9,9 +9,10 @@ const MyProvider = ({ children }) => {
   const [login, setLogin] = useState(false);
   const [message, setMessage] = useState("");
   const [userId, setUserId] = useState("");
-  const [userData, setUserData] = useState([...fakeData]);
+  const [userData, setUserData] = useState([]);
   const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([...fakeData]);
   return (
     <MyContext.Provider
       value={{
@@ -33,6 +34,8 @@ const MyProvider = ({ children }) => {
         setUserName,
         loading,
         setLoading,
+        data,
+        setData,
       }}
     >
       {children}

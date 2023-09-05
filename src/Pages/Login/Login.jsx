@@ -107,6 +107,7 @@ const Login = () => {
             margin: "0.5rem 0",
             cursor: "pointer",
           }}
+          onClick={handleSubmit}
         >
           Login
         </Button>

@@ -83,8 +83,12 @@ const EachList = ({ item }) => {
             {/* <Box sx={{ width: "100%" }}> */}
             <Stack spacing={2}>
               <Item>
-                <h3 style={{ color: "black" }}>{item.title}</h3>
-                <p style={{ color: "black" }}>{item?.description}</p>
+                <h3 style={{ color: "black", textAlign: "start" }}>
+                  {item.title}
+                </h3>
+                <p style={{ color: "black", textAlign: "start" }}>
+                  {item?.description}
+                </p>
               </Item>
             </Stack>
             {/* </Box> */}

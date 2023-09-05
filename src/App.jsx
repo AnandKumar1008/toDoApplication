@@ -9,6 +9,7 @@ import Nav from "./Components/Nav/Nav";
 import Login from "./Pages/Login/Login";
 import { MyContext } from "./MyContext";
 import { BASE_URL } from "./BaseUrl";
+import ToDo from "./Pages/ToDo/ToDo";
 
 const App = () => {
   const {
@@ -49,6 +50,7 @@ const App = () => {
       <div className="to_do-app_padding">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/todo" element={<ToDo />} />
         </Routes>
       </div>
     </div>

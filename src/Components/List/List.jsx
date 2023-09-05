@@ -32,12 +32,12 @@ const List = () => {
           <p>You have not created any to do till now</p>
         </div>
       )}
-      {/* {loading && <p>Loading...</p>} */}
-      {login || <p>Please login to check to do</p>}
+      {login || (
+        <p style={{ color: "white" }}>Please login to check your to do</p>
+      )}
       {userData.map((item) => (
         <div key={item._id}>
           <Container maxWidth="sm">
-            {/* <Box/> */}
             <EachList item={item} />
           </Container>
         </div>

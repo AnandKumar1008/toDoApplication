@@ -110,6 +110,7 @@ const CreateAccount = () => {
             padding: "0.5rem",
             margin: "0.5rem 0",
           }}
+          onClick={handleSubmit}
         >
           Create Account
         </Button>
