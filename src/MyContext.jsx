@@ -9,7 +9,7 @@ const MyProvider = ({ children }) => {
   const [login, setLogin] = useState(false);
   const [message, setMessage] = useState("");
   const [userId, setUserId] = useState("");
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState([...fakeData]);
   const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(false);
   return (

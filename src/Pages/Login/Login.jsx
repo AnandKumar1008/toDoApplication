@@ -6,6 +6,7 @@ import { BASE_URL } from "../../BaseUrl";
 import { AiOutlineClose } from "react-icons/ai";
 import Animations from "../../Components/Animations";
 import LoadingSkeleton from "../LoadingSleteton";
+import Button from "@mui/material/Button";
 const Login = () => {
   const {
     setLoginPage,
@@ -16,7 +17,6 @@ const Login = () => {
     setUserId,
     setUpdate,
     setUserName,
-    loading,
     setLoading,
   } = useContext(MyContext);
   const [error, setError] = useState("");
@@ -99,11 +99,17 @@ const Login = () => {
           }}
         />
 
-        <button
-          style={{ padding: "0.5rem", margin: "0.5rem 0", cursor: "pointer" }}
+        <Button
+          variant="contained"
+          style={{
+            fontFamily: "var(--font-family)",
+            padding: "0.5rem",
+            margin: "0.5rem 0",
+            cursor: "pointer",
+          }}
         >
           Login
-        </button>
+        </Button>
         <p>
           Doesn't have an Account{" "}
           <span

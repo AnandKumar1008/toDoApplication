@@ -3,6 +3,8 @@ import { MyContext } from "../../MyContext";
 import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
 import { BASE_URL } from "../../BaseUrl";
+import Button from "@mui/material/Button";
+
 const CreateAccount = () => {
   const { setLoginPage, setAuthPage, setMessage } = useContext(MyContext);
   const [userDetail, setUserDetail] = useState({
@@ -100,11 +102,17 @@ const CreateAccount = () => {
           }}
         />
 
-        <button
-          style={{ cursor: "pointer", padding: "0.5rem", margin: "0.5rem 0" }}
+        <Button
+          variant="contained"
+          style={{
+            fontFamily: "var(--font-family)",
+            cursor: "pointer",
+            padding: "0.5rem",
+            margin: "0.5rem 0",
+          }}
         >
           Create Account
-        </button>
+        </Button>
         <p>
           Already had An Account?{" "}
           <span

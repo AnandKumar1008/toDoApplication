@@ -5,6 +5,10 @@ import EachList from "../EachList/EachList";
 import axios from "axios";
 import { MyContext } from "../../MyContext";
 import { BASE_URL } from "../../BaseUrl";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+
 const List = () => {
   const { update, login, userId, userData, setUserData, loading, setLoading } =
     useContext(MyContext);
@@ -32,7 +36,10 @@ const List = () => {
       {login || <p>Please login to check to do</p>}
       {userData.map((item) => (
         <div key={item._id}>
-          <EachList item={item} />
+          <Container maxWidth="sm">
+            {/* <Box/> */}
+            <EachList item={item} />
+          </Container>
         </div>
       ))}
     </div>

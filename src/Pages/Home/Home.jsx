@@ -5,6 +5,8 @@ import { MyContext } from "../../MyContext";
 import { BASE_URL } from "../../BaseUrl";
 import "./Home.css";
 import Animations from "../../Components/Animations";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
 const Home = () => {
   const {
     update,
@@ -43,39 +45,40 @@ const Home = () => {
         To Do Appplication
       </h1>
       <div className="to_do-input_button">
-        <div className="to_do-input">
-          <input
-            type="text"
-            style={{ padding: "1rem 0.5rem" }}
-            placeholder="Enter your title "
-            value={currentData.title}
-            onChange={(e) =>
-              setCurrentData({ ...currentData, title: e.target.value })
-            }
-          />
+        <Container>
+          <div className="to_do-input">
+            <input
+              type="text"
+              style={{ padding: "1rem 0.5rem" }}
+              placeholder="Enter your title "
+              value={currentData.title}
+              onChange={(e) =>
+                setCurrentData({ ...currentData, title: e.target.value })
+              }
+            />
 
-          <textarea
-            name=""
-            id=""
-            cols="30"
-            rows="2"
-            placeholder="Description"
-            value={currentData.description}
-            onChange={(e) =>
-              setCurrentData({ ...currentData, description: e.target.value })
-            }
-          ></textarea>
-        </div>
-        <button
-          style={{
-            cursor: "pointer",
-            padding: "1rem",
-            border: "1px solid #eeeeee",
-          }}
-          onClick={handleAdd}
-        >
-          Add To Do
-        </button>
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="2"
+              placeholder="Description"
+              value={currentData.description}
+              onChange={(e) =>
+                setCurrentData({ ...currentData, description: e.target.value })
+              }
+            ></textarea>
+          </div>
+
+          <Button
+            style={{ fontFamily: "var(--font-family)" }}
+            variant="contained"
+            color="success"
+            onClick={handleAdd}
+          >
+            Add To Do
+          </Button>
+        </Container>
       </div>
       {loading && (
         <div style={{ margin: "1rem 0", textAlign: "center" }}>

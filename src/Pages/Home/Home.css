@@ -15,18 +15,7 @@
   max-width: 100%;
   margin: 0rem 6rem;
 }
-.to_do-input_button button {
-  border: none;
-  width: 100%;
-  flex: 1;
-  background-color: orangered;
-  border-radius: 0.25rem;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  height: 3.5rem;
-  color: white;
-  font-size: 1.5rem;
-}
+
 .to_do-input {
   display: flex;
   flex-direction: column;

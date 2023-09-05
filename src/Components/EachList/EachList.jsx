@@ -3,6 +3,23 @@ import React, { useContext, useState } from "react";
 import { MyContext } from "../../MyContext";
 import { BASE_URL } from "../../BaseUrl";
 import "./EachList.css";
+import { MdDelete, MdUpdate } from "react-icons/md";
+import { AiFillEdit, AiOutlineClose } from "react-icons/ai";
+// import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Stack from "@mui/material/Stack";
+import { styled } from "@mui/material/styles";
+
+import Button from "@mui/material/Button";
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
+
 const EachList = ({ item }) => {
   const { update, setUpdate } = useContext(MyContext);
   const [edit, setEdit] = useState(false);
@@ -63,25 +80,58 @@ const EachList = ({ item }) => {
           </>
         ) : (
           <div>
-            <h3 style={{ color: "white" }}>{item.title}</h3>
-            <p style={{ color: "white" }}>{item?.description}</p>
+            {/* <Box sx={{ width: "100%" }}> */}
+            <Stack spacing={2}>
+              <Item>
+                <h3 style={{ color: "black" }}>{item.title}</h3>
+                <p style={{ color: "black" }}>{item?.description}</p>
+              </Item>
+            </Stack>
+            {/* </Box> */}
           </div>
         )}
         <div className="to_do-list_button">
           {edit ? (
-            <button onClick={handleUpdate}>Update</button>
+            <Button
+              style={{ fontFamily: "var(--font-family)" }}
+              onClick={handleUpdate}
+              variant="contained"
+              startIcon={<MdUpdate />}
+            >
+              Update
+            </Button>
           ) : (
-            <button
+            <Button
+              variant="contained"
+              startIcon={<AiFillEdit />}
+              style={{ fontFamily: "var(--font-family)" }}
               onClick={() => {
                 setInp({ title: item.title, description: item?.description });
                 setEdit(true);
               }}
             >
               Edit
-            </button>
+            </Button>
           )}
-          <button onClick={handleDelete}>Delete</button>
-          {edit && <button onClick={() => setEdit(false)}>Close</button>}
+          <Button
+            variant="outlined"
+            color="error"
+            style={{ fontFamily: "var(--font-family)" }}
+            startIcon={<MdDelete />}
+            onClick={handleDelete}
+          >
+            Delete
+          </Button>
+          {edit && (
+            <Button
+              style={{ fontFamily: "var(--font-family)" }}
+              variant="contained"
+              onClick={() => setEdit(false)}
+              startIcon={<AiOutlineClose />}
+            >
+              close
+            </Button>
+          )}
         </div>
       </div>
     </div>
