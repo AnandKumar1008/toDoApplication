@@ -4,6 +4,8 @@ import { MyContext } from "../../MyContext";
 import axios from "axios";
 import { BASE_URL } from "../../BaseUrl";
 import { AiOutlineClose } from "react-icons/ai";
+import Animations from "../../Components/Animations";
+import LoadingSkeleton from "../LoadingSleteton";
 const Login = () => {
   const {
     setLoginPage,
@@ -14,6 +16,8 @@ const Login = () => {
     setUserId,
     setUpdate,
     setUserName,
+    loading,
+    setLoading,
   } = useContext(MyContext);
   const [error, setError] = useState("");
   const [userDetail, setUserDetail] = useState({
@@ -24,7 +28,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!userDetail.email || !userDetail.password) return;
+
     try {
+      setLoading(true);
       const res = await axios.post(`${BASE_URL}/api/v1/user/login`, userDetail);
 
       setLogin(true);
@@ -35,13 +41,16 @@ const Login = () => {
       setAuthPage(false);
       setLoginPage(false);
       setUpdate((p) => !p);
+      setLoading(false);
     } catch (error) {
       setError("Email or password is wrong");
       console.log(error);
+      setLoading(false);
     }
   };
   return (
     <div className="to_do-login">
+      (
       <form className="to_do-login_cover" onSubmit={handleSubmit}>
         <div className="to_do-login_close">
           <button
@@ -105,6 +114,7 @@ const Login = () => {
           </span>{" "}
         </p>
       </form>
+      )
     </div>
   );
 };

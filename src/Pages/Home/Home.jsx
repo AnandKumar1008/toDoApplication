@@ -4,6 +4,7 @@ import axios from "axios";
 import { MyContext } from "../../MyContext";
 import { BASE_URL } from "../../BaseUrl";
 import "./Home.css";
+import Animations from "../../Components/Animations";
 const Home = () => {
   const {
     update,
@@ -76,8 +77,14 @@ const Home = () => {
           Add To Do
         </button>
       </div>
-      {loading && <p style={{ margin: "1rem 0" }}>Loading...</p>}
-      <List />
+      {loading && (
+        <div style={{ margin: "1rem 0", textAlign: "center" }}>
+          <Animations />
+        </div>
+      )}
+      <div style={loading ? { display: "none" } : { display: "block" }}>
+        {<List />}
+      </div>
     </div>
   );
 };
