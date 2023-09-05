@@ -6,6 +6,7 @@ import { FaUser } from "react-icons/fa";
 import { CiLogin, CiLogout } from "react-icons/ci";
 // import { IoPersonAdd } from "react-icons/io";
 import { IoMdPersonAdd } from "react-icons/io";
+import { AiOutlineUser } from "react-icons/ai";
 const Nav = () => {
   const { setAuthPage, setLoginPage, login, setLogin, setUserData, userName } =
     useContext(MyContext);
@@ -54,7 +55,7 @@ const Nav = () => {
       {
         <ul className="to_do-nav_right">
           <li className="to_do-nav_profile">
-            <FaUser />
+            {login ? <FaUser /> : <AiOutlineUser />}
             <div className="to_do-nav_profile_hover">
               <ul>
                 {login ? (
